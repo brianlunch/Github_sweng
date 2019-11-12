@@ -1,58 +1,45 @@
-/*
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
-}
-
-export default App;
-
-*/
-
-import React, { Component } from 'react';
-import Button from './components/Button.jsx';
-
-class App extends Component {
-	
+import axios from 'axios';import Form from './components/Form.jsx';class App extends Component {
   constructor() {
     super();
-    this.handleClick = this.handleClick.bind(this)
-  }
-  
-  handleClick(e) {
-    alert("The button was clicked");
-  }
-  
-  
-  render() {
+    this.state = {
+      gitun: 'No username',
+      info: '',
+      formData: {
+        username: '',
+      }
+    }
+    this.handleUserFormSubmit = this.handleUserFormSubmit.bind(this);
+    this.handleFormChange= this.handleFormChange.bind(this);
+  }handleUserFormSubmit(event) {
+    event.preventDefault();
+    axios.get('https://api.github.com/users/'+this.state.formData.username)
+    .then(response => this.setState({
+      gitun: response.data.login,
+      info : JSON.stringify(response.data, undefined, 2)
+    })).catch((err) => { console.log(err); });
+  };handleFormChange(event) {
+    const obj = this.state.formData;
+    obj[event.target.name] = event.target.value;
+    this.setState(obj);
+  };render() {
     return (
       <div className="App">
-	  
         <header className="App-header">
           <h1 className="App-title">GitHub Analytics</h1>
         </header>
-		
         <p className="App-intro">
           Watch this space...
         </p>
-		
-        <Button handleClick={this.handleClick}/>
-		
-      </div>
+        <Form
+          formData={this.state.formData}
+          handleUserFormSubmit={this.handleUserFormSubmit}
+          handleFormChange={this.handleFormChange}
+        />
+        <p><b>Username:</b></p>
+        <p>{this.state.gitun}</p>
+        <b>Information:</b>
+        <pre>{this.state.info}</pre></div>
     );
   }
 }export default App;
