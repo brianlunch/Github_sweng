@@ -16,43 +16,43 @@ const ProfileDetails = (props) => {
         </div>
 		
         <div>
-          {props.infoclean.name ? <div><p>Name:</p><p>{props.infoclean.name}</p></div> : null }
+          {props.infoclean.name ? <div class="row justify-content-left text-dark"> <div class="col-md-1 text-center">Name:</div> <div class="col-md-1 text-center">{props.infoclean.name}</div></div>: null }
         </div>
 		
         <div>
-          {props.infoclean.bio ? <div><p>Bio:</p><p>{props.infoclean.bio}</p></div> : null }
+          {props.infoclean.created_at ? <div class="row justify-content-left text-dark"> <div class="col-md-1 text-center">Joined:</div> <div class="col-md-1 text-center">{<Moment from={new Date()}>{props.infoclean.created_at}</Moment>}</div></div> : null }
         </div>
 		
         <div>
-          {props.infoclean.created_at ? <div><p>Joined:</p><p>{
-          <Moment from={new Date()}>{props.infoclean.created_at}</Moment>}</p></div> : null }
-        </div>
-		
-        <div>
-          {props.infoclean.blog ? <div><p>Blog:</p><p><a href={
+          {props.infoclean.blog ? <div class="row justify-content-left text-dark"> <div class="col-md-1 text-center">Blog:</div> <div class="col-md-1 text-center"><a href={
              props.infoclean.blog.search("http") !== -1 ? props.infoclean.blog
-            : "http://" +  props.infoclean.blog } target="_blank">{props.infoclean.blog}</a></p></div> : null }
+            : "http://" +  props.infoclean.blog } target="_blank">{props.infoclean.blog}</a></div></div> : null }
         </div>
 		
         <div>
-          {props.infoclean.location ? <div><p>Location:</p><p>{props.infoclean.location}</p></div> : null }
+          {props.infoclean.location ? <div class="row justify-content-left text-dark"> <div class="col-md-1 text-center">Location:</div> <div class="col-md-1 text-center">{props.infoclean.location}</div></div> : null }
         </div>
 		
         <div>
-          {props.infoclean.company ? <div><p>Company:</p><p>{props.infoclean.company}</p></div> : null }
+          {props.infoclean.company ? <div class="row justify-content-left text-dark"> <div class="col-md-1 text-center">Company:</div> <div class="col-md-1 text-center">{props.infoclean.company}</div></div> : null }
         </div>
 		
         <div>
-          {props.infoclean.public_repos ? <div><p>Public Repos:</p><p>{props.infoclean.public_repos}</p></div> : null }
+          {props.infoclean.public_repos ? <div class="row justify-content-left text-dark"> <div class="col-md-1 text-center">Public Repos:</div> <div class="col-md-1 text-center">{props.infoclean.public_repos}</div></div> : null }
         </div>
 		
         <div>
-          {props.infoclean.followers ? <div><p>Followers:</p><p>{props.infoclean.followers}</p></div> : null }
+          {props.infoclean.followers ? <div class="row justify-content-left text-dark"> <div class="col-md-1 text-center">Followers:</div> <div class="col-md-1 text-center">{props.infoclean.followers}</div></div> : null }
         </div>
 		
         <div>
-          {props.infoclean.following ? <div><p>Following:</p><p>{props.infoclean.following}</p></div> : null }
+          {props.infoclean.following ? <div class="row justify-content-left text-dark"> <div class="col-md-1 text-center">Following:</div> <div class="col-md-1 text-center">{props.infoclean.following}</div></div> : null }
         </div>
+		
+		<div>
+          {props.infoclean.bio ?<div class="row justify-content-left text-dark"> <div class="col-md-1 text-center">Bio:</div> <div class="col-md-1 text-center">{props.infoclean.bio}</div></div>: null }
+        </div>
+		
 		
         <div>
           {props.infoclean.html_url ? <div><p><a href={props.infoclean.html_url} target="_blank">View on GitHub</a></p></div> : null }

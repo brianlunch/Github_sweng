@@ -30,14 +30,12 @@ handleFormChange(event) {
   };
 render() {
     return (
+	
+	
       <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">GitHub Analytics</h1>
-        </header>
-        <p className="App-intro">
-          Watch this space...
-        </p>
-        <hr></hr>
+	  <main role="main">
+        
+		
         <Form
           formData={this.state.formData}
           handleUserFormSubmit={this.handleUserFormSubmit}
@@ -46,7 +44,8 @@ render() {
         <hr></hr>
         Profile Details:
         <ProfileDetails infoclean={this.state.infoclean}/>
-</div>
+	</main>
+	</div>
     );
   }
 }
