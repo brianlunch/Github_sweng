@@ -1,18 +1,23 @@
 import React from 'react';const Form = (props) => {
-  return (<form onSubmit={(event) => props.handleUserFormSubmit(event)}>
+  return (
+  
+  <form onSubmit={(event) => props.handleUserFormSubmit(event)}>
       <label>
-        <input name="username"
-        type="text"
-        placeholder="GitHub Username"
+	  
+        <input class = "searchBar" name="username" type="text" placeholder="GitHub Username"
         required
         value={props.formData.username}
         onChange={props.handleFormChange}
       />
+
       </label>
-      <div>
+     
       <input
         type="submit"
-        value="Submit"
+        value="Search"
       />
-    </div>
-    </form>)};export default Form;
+    
+    </form>
+)};export default Form;
+	
+	

@@ -1,0 +1,32 @@
+
+textarea:focus, input:focus{
+    outline: none;
+}
+
+.searchBar{
+border-bottom: 1px solid #aaaaaa;border-top: 0px solid #f48fb1;border-right: 0px solid #f48fb1;border-left: 0px solid #f48fb1;
+width: 500px;
+}
+
+.searchBar:focus{
+border-bottom: 1px solid #f48fb1;border-top: 0px solid #f48fb1;border-right: 0px solid #f48fb1;border-left: 0px solid #f48fb1;
+width: 500px;
+}
+
+
+.searchBar:hover{
+border-bottom: 1px solid #f48fb1;border-top: 0px solid #f48fb1;border-right: 0px solid #f48fb1;border-left: 0px solid #f48fb1;
+width: 500px;
+
+}
+
+input[type="submit"]{
+    /* change these properties to whatever you want */
+    background-color: #FFFFFF;
+    color: #f48fb1;
+    border-radius: 10px;
+	border: 1px solid
+}
+form > input + .row {
+	display:inline-block
+}

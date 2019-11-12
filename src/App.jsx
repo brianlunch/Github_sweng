@@ -35,14 +35,17 @@ render() {
       <div className="App">
 	  <main role="main">
         
+		<br></br><br></br><br></br>
 		
-        <Form
+        <div class="row justify-content-left text-dark"> <div class="col-md-12 text-center">
+		
+		<Form
           formData={this.state.formData}
           handleUserFormSubmit={this.handleUserFormSubmit}
           handleFormChange={this.handleFormChange}
         />
-        <hr></hr>
-        Profile Details:
+		</div></div>
+        
         <ProfileDetails infoclean={this.state.infoclean}/>
 	</main>
 	</div>

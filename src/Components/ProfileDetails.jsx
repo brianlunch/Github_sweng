@@ -1,53 +1,54 @@
 import React from 'react';
 import Moment from 'react-moment';
 const imgStye = {
-  borderRadius: "50%",
-  width: "250px",
-  height: "250px"
+  borderRadius: "5%",
+  width: "100px",
+  height: "100px"
 };
 const ProfileDetails = (props) => {
     return (
       <div>
         <div>
-          {props.infoclean.avatar_url ?
+		
+          {props.infoclean.avatar_url ?<div class="row justify-content-right text-dark"> <div class="col-md-1 text-left"></div><div class="col-md-1 text-left">
             <img src={props.infoclean.avatar_url}
                  alt="Profile"
-                 style={imgStye}/> : null }
+                 style={imgStye}/><br></br><br></br></div> <div class="col-md-1 text-left border-right border-right"></div></div> : null } 
         </div>
 		
         <div>
-          {props.infoclean.name ? <div class="row justify-content-left text-dark"> <div class="col-md-1 text-right">Name:</div> <div class="col-md-2 text-left">{props.infoclean.name}</div></div>: null }
+          {props.infoclean.name ? <div class="row justify-content-left text-dark"> <div class="col-md-1 text-right">Name:</div> <div class="col-md-2 text-left border-right border-right">{props.infoclean.name}</div></div>: null }
         </div>
 		
         <div>
-          {props.infoclean.created_at ? <div class="row justify-content-left text-dark"> <div class="col-md-1 text-right">Joined:</div> <div class="col-md-2 text-left">{<Moment from={new Date()}>{props.infoclean.created_at}</Moment>}</div></div> : null }
+          {props.infoclean.created_at ? <div class="row justify-content-left text-dark"> <div class="col-md-1 text-right">Joined:</div> <div class="col-md-2 text-left border-right">{<Moment from={new Date()}>{props.infoclean.created_at}</Moment>}</div></div> : null }
         </div>
 		
         <div>
-          {props.infoclean.blog ? <div class="row justify-content-left text-dark"> <div class="col-md-1 text-right">Blog:</div> <div class="col-md-2 text-left"><a href={
+          {props.infoclean.blog ? <div class="row justify-content-left text-dark"> <div class="col-md-1 text-right">Blog:</div> <div class="col-md-2 text-left border-right"><a href={
              props.infoclean.blog.search("http") !== -1 ? props.infoclean.blog
             : "http://" +  props.infoclean.blog } target="_blank">{props.infoclean.blog}</a></div></div> : null }
         </div>
 		
         <div>
-          {props.infoclean.location ? <div class="row justify-content-left text-dark"> <div class="col-md-1 text-right">Location:</div> <div class="col-md-2 text-left">{props.infoclean.location}</div></div> : null }
+          {props.infoclean.location ? <div class="row justify-content-left text-dark"> <div class="col-md-1 text-right">Location:</div> <div class="col-md-2 text-left border-right">{props.infoclean.location}</div></div> : null }
         </div>
 		
         <div>
-          {props.infoclean.company ? <div class="row justify-content-left text-dark"> <div class="col-md-1 text-right">Company:</div> <div class="col-md-2 text-left">{props.infoclean.company}</div></div> : null }
+          {props.infoclean.company ? <div class="row justify-content-left text-dark"> <div class="col-md-1 text-right">Company:</div> <div class="col-md-2 text-left border-right">{props.infoclean.company}</div></div> : null }
         </div>
 		
 		
         <div>
-          {props.infoclean.followers ? <div class="row justify-content-left text-dark"> <div class="col-md-1 text-right">Followers:</div> <div class="col-md-2 text-left">{props.infoclean.followers}</div></div> : null }
+          {props.infoclean.followers ? <div class="row justify-content-left text-dark"> <div class="col-md-1 text-right">Followers:</div> <div class="col-md-2 text-left border-right">{props.infoclean.followers}</div></div> : null }
         </div>
 		
         <div>
-          {props.infoclean.following ? <div class="row justify-content-left text-dark"> <div class="col-md-1 text-right">Following:</div> <div class="col-md-2 text-left">{props.infoclean.following}</div></div> : null }
+          {props.infoclean.following ? <div class="row justify-content-left text-dark"> <div class="col-md-1 text-right">Following:</div> <div class="col-md-2 text-left border-right">{props.infoclean.following}</div></div> : null }
         </div>
 		
 		<div>
-          {props.infoclean.bio ?<div class="row justify-content-left text-dark"> <div class="col-md-1 text-right">Bio:</div> <div class="col-md-2 text-left">{props.infoclean.bio}</div></div>: null }
+          {props.infoclean.bio ?<div class="row justify-content-left text-dark"> <div class="col-md-1 text-right">Bio:</div> <div class="col-md-2 text-left border-right">{props.infoclean.bio}</div></div>: null }
         </div>
 		
 		
@@ -55,10 +56,7 @@ const ProfileDetails = (props) => {
           {props.infoclean.html_url ? <div><p><a href={props.infoclean.html_url} target="_blank">View on GitHub</a></p></div> : null }
         </div>
 		
-        <div>
-          {props.infoclean.login ? <div>{ <img src={"http://ghchart.rshah.org/"+props.infoclean.login} alt="Github chart" />
-        }<br/><a href="https://ghchart.rshah.org/" target="_blank">Source for GitHub Chart API</a></div> : null }
-        </div>
+        
 		
       </div>
     )
