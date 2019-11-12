@@ -1,28 +1,34 @@
 import React, { Component } from 'react';
-import axios from 'axios';import Form from './components/Form.jsx';class App extends Component {
+import axios from 'axios';
+import Form from './components/Form.jsx';
+import ProfileDetails from './components/ProfileDetails.jsx';
+class App extends Component {
   constructor() {
     super();
     this.state = {
       gitun: 'No username',
-      info: '',
+      infoclean : '',
       formData: {
         username: '',
-      }
-    }
+      },
+}
     this.handleUserFormSubmit = this.handleUserFormSubmit.bind(this);
     this.handleFormChange= this.handleFormChange.bind(this);
-  }handleUserFormSubmit(event) {
+  }
+handleUserFormSubmit(event) {
     event.preventDefault();
-    axios.get('https://api.github.com/users/'+this.state.formData.username)
+       axios.get('https://api.github.com/users/'+this.state.formData.username)
     .then(response => this.setState({
       gitun: response.data.login,
-      info : JSON.stringify(response.data, undefined, 2)
+      infoclean: response.data,
     })).catch((err) => { console.log(err); });
-  };handleFormChange(event) {
+  };
+handleFormChange(event) {
     const obj = this.state.formData;
     obj[event.target.name] = event.target.value;
     this.setState(obj);
-  };render() {
+  };
+render() {
     return (
       <div className="App">
         <header className="App-header">
@@ -31,15 +37,17 @@ import axios from 'axios';import Form from './components/Form.jsx';class App ext
         <p className="App-intro">
           Watch this space...
         </p>
+        <hr></hr>
         <Form
           formData={this.state.formData}
           handleUserFormSubmit={this.handleUserFormSubmit}
           handleFormChange={this.handleFormChange}
         />
-        <p><b>Username:</b></p>
-        <p>{this.state.gitun}</p>
-        <b>Information:</b>
-        <pre>{this.state.info}</pre></div>
+        <hr></hr>
+        Profile Details:
+        <ProfileDetails infoclean={this.state.infoclean}/>
+</div>
     );
   }
-}export default App;
+}
+export default App;
