@@ -14,7 +14,7 @@ import React from 'react';const Form = (props) => {
      
       <input
         type="submit"
-        value="Search"
+        value= "🔍"
       />
     
     </form>

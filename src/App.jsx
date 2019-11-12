@@ -44,7 +44,7 @@ render() {
           handleUserFormSubmit={this.handleUserFormSubmit}
           handleFormChange={this.handleFormChange}
         />
-		</div></div>
+		</div></div><br></br><br></br>
         
         <ProfileDetails infoclean={this.state.infoclean}/>
 	</main>

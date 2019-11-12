@@ -4,29 +4,37 @@ textarea:focus, input:focus{
 }
 
 .searchBar{
-border-bottom: 1px solid #aaaaaa;border-top: 0px solid #f48fb1;border-right: 0px solid #f48fb1;border-left: 0px solid #f48fb1;
+border-bottom: 1px solid #FAaaaa;border-top: 0px solid #aaaaaa;border-right: 0px solid #aaaaaa;border-left: 0px solid #aaaaaa;
 width: 500px;
+background: #FFFFFF;
 }
 
 .searchBar:focus{
-border-bottom: 1px solid #f48fb1;border-top: 0px solid #f48fb1;border-right: 0px solid #f48fb1;border-left: 0px solid #f48fb1;
+border-bottom: 1px solid #aaaaaa;border-top: 0px solid #aaaaaa;border-right: 0px solid #aaaaaa;border-left: 0px solid #aaaaaa;
 width: 500px;
+background: #FFFFFF;
 }
 
 
 .searchBar:hover{
-border-bottom: 1px solid #f48fb1;border-top: 0px solid #f48fb1;border-right: 0px solid #f48fb1;border-left: 0px solid #f48fb1;
+border-bottom: 1px solid #aaaaaa;border-top: 0px solid #aaaaaa;border-right: 0px solid #aaaaaa;border-left: 0px solid #aaaaaa;
 width: 500px;
+background: #FFFFFF;
 
 }
 
 input[type="submit"]{
     /* change these properties to whatever you want */
     background-color: #FFFFFF;
-    color: #f48fb1;
-    border-radius: 10px;
-	border: 1px solid
+    color: #aaaaaa;
+    border-radius: 0px;
+	border: 0px solid
 }
-form > input + .row {
-	display:inline-block
+
+input[type="submit"]:hover{
+    /* change these properties to whatever you want */
+    background-color: #FFFFFF;
+    color: #aaaaaa;
+    border-radius: 50px;
+	border: 1px solid
 }
