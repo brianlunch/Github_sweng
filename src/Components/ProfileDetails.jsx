@@ -16,41 +16,38 @@ const ProfileDetails = (props) => {
         </div>
 		
         <div>
-          {props.infoclean.name ? <div class="row justify-content-left text-dark"> <div class="col-md-1 text-center">Name:</div> <div class="col-md-1 text-center">{props.infoclean.name}</div></div>: null }
+          {props.infoclean.name ? <div class="row justify-content-left text-dark"> <div class="col-md-1 text-right">Name:</div> <div class="col-md-2 text-left">{props.infoclean.name}</div></div>: null }
         </div>
 		
         <div>
-          {props.infoclean.created_at ? <div class="row justify-content-left text-dark"> <div class="col-md-1 text-center">Joined:</div> <div class="col-md-1 text-center">{<Moment from={new Date()}>{props.infoclean.created_at}</Moment>}</div></div> : null }
+          {props.infoclean.created_at ? <div class="row justify-content-left text-dark"> <div class="col-md-1 text-right">Joined:</div> <div class="col-md-2 text-left">{<Moment from={new Date()}>{props.infoclean.created_at}</Moment>}</div></div> : null }
         </div>
 		
         <div>
-          {props.infoclean.blog ? <div class="row justify-content-left text-dark"> <div class="col-md-1 text-center">Blog:</div> <div class="col-md-1 text-center"><a href={
+          {props.infoclean.blog ? <div class="row justify-content-left text-dark"> <div class="col-md-1 text-right">Blog:</div> <div class="col-md-2 text-left"><a href={
              props.infoclean.blog.search("http") !== -1 ? props.infoclean.blog
             : "http://" +  props.infoclean.blog } target="_blank">{props.infoclean.blog}</a></div></div> : null }
         </div>
 		
         <div>
-          {props.infoclean.location ? <div class="row justify-content-left text-dark"> <div class="col-md-1 text-center">Location:</div> <div class="col-md-1 text-center">{props.infoclean.location}</div></div> : null }
+          {props.infoclean.location ? <div class="row justify-content-left text-dark"> <div class="col-md-1 text-right">Location:</div> <div class="col-md-2 text-left">{props.infoclean.location}</div></div> : null }
         </div>
 		
         <div>
-          {props.infoclean.company ? <div class="row justify-content-left text-dark"> <div class="col-md-1 text-center">Company:</div> <div class="col-md-1 text-center">{props.infoclean.company}</div></div> : null }
+          {props.infoclean.company ? <div class="row justify-content-left text-dark"> <div class="col-md-1 text-right">Company:</div> <div class="col-md-2 text-left">{props.infoclean.company}</div></div> : null }
+        </div>
+		
+		
+        <div>
+          {props.infoclean.followers ? <div class="row justify-content-left text-dark"> <div class="col-md-1 text-right">Followers:</div> <div class="col-md-2 text-left">{props.infoclean.followers}</div></div> : null }
         </div>
 		
         <div>
-          {props.infoclean.public_repos ? <div class="row justify-content-left text-dark"> <div class="col-md-1 text-center">Public Repos:</div> <div class="col-md-1 text-center">{props.infoclean.public_repos}</div></div> : null }
-        </div>
-		
-        <div>
-          {props.infoclean.followers ? <div class="row justify-content-left text-dark"> <div class="col-md-1 text-center">Followers:</div> <div class="col-md-1 text-center">{props.infoclean.followers}</div></div> : null }
-        </div>
-		
-        <div>
-          {props.infoclean.following ? <div class="row justify-content-left text-dark"> <div class="col-md-1 text-center">Following:</div> <div class="col-md-1 text-center">{props.infoclean.following}</div></div> : null }
+          {props.infoclean.following ? <div class="row justify-content-left text-dark"> <div class="col-md-1 text-right">Following:</div> <div class="col-md-2 text-left">{props.infoclean.following}</div></div> : null }
         </div>
 		
 		<div>
-          {props.infoclean.bio ?<div class="row justify-content-left text-dark"> <div class="col-md-1 text-center">Bio:</div> <div class="col-md-1 text-center">{props.infoclean.bio}</div></div>: null }
+          {props.infoclean.bio ?<div class="row justify-content-left text-dark"> <div class="col-md-1 text-right">Bio:</div> <div class="col-md-2 text-left">{props.infoclean.bio}</div></div>: null }
         </div>
 		
 		
