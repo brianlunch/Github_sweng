@@ -1,10 +1,17 @@
 import React from 'react';
 import Moment from 'react-moment';
-const imgStye = {
+const imgStyle = {
   borderRadius: "5%",
   width: "100px",
   height: "100px"
 };
+
+const imgStyle1 = {
+  borderRadius: "5%",
+  width: "50px",
+  height: "50px"
+};
+
 const ProfileDetails = (props) => {
     return (
       <div>
@@ -13,7 +20,7 @@ const ProfileDetails = (props) => {
           {props.infoclean.avatar_url ?<div class="row justify-content-right text-dark"> <div class="col-md-1 text-left"></div><div class="col-md-1 text-left">
             <img src={props.infoclean.avatar_url}
                  alt="Profile"
-                 style={imgStye}/><br></br><br></br></div> <div class="col-md-1 text-left border-right border-right"></div></div> : null } 
+                 style={imgStyle}/><br></br><br></br></div> <div class="col-md-1 text-left border-right border-right"></div></div> : null } 
         </div>
 		
         <div>
@@ -53,8 +60,14 @@ const ProfileDetails = (props) => {
 		
 		
         <div>
-          {props.infoclean.html_url ? <div><p><a href={props.infoclean.html_url} target="_blank">View on GitHub</a></p></div> : null }
+          {props.infoclean.html_url ? <div class="row justify-content-left text-dark"> <div class="col-md-1 text-left"></div><div class="col-md-1 text-center"><br></br><a href={props.infoclean.html_url} target="_blank"><img src="githubLogo.png"
+                 alt="Githublogo"
+                 style={imgStyle1}/></a></div></div> : null }
         </div>
+		
+		<div>
+		
+		</div>
 		
         
 		

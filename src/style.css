@@ -1,4 +1,9 @@
 
+
+body {
+	background-color:#FAFAFA;
+}
+
 textarea:focus, input:focus{
     outline: none;
 }
