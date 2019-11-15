@@ -4,7 +4,7 @@ import React from 'react';const Form = (props) => {
   <form onSubmit={(event) => props.handleUserFormSubmit(event)}>
       <label>
 	  
-        <input class = "searchBar" name="username" type="text" placeholder="GitHub Username"
+        <input class="searchBar" name="username" type="text" placeholder="GitHub Username"
         required
         value={props.formData.username}
         onChange={props.handleFormChange}
@@ -14,7 +14,7 @@ import React from 'react';const Form = (props) => {
      
       <input
         type="submit"
-        value= "🔍"
+        value="🔍"
       />
     
     </form>

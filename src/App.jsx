@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Form from './components/Form.jsx';
+import Repos from './components/Repos.jsx'; 
 import ProfileDetails from './components/ProfileDetails.jsx';
 class App extends Component {
   constructor() {
@@ -8,21 +9,28 @@ class App extends Component {
     this.state = {
       gitun: 'No username',
       infoclean : '',
+	  repos : '',
       formData: {
         username: '',
       },
 }
     this.handleUserFormSubmit = this.handleUserFormSubmit.bind(this);
     this.handleFormChange= this.handleFormChange.bind(this);
+	
   }
 handleUserFormSubmit(event) {
     event.preventDefault();
-       axios.get('https://api.github.com/users/'+this.state.formData.username)
-    .then(response => this.setState({
+       axios.get('https://api.github.com/users/'+this.state.formData.username).then(response => this.setState({
       gitun: response.data.login,
       infoclean: response.data,
     })).catch((err) => { console.log(err); });
-  };
+	
+	axios.get('https://api.github.com/users/brianlunch/repos').then(response => this.setState({
+      repos: response.data,
+    })).catch((err) => { console.log(err); });
+	
+}
+
 handleFormChange(event) {
     const obj = this.state.formData;
     obj[event.target.name] = event.target.value;
@@ -47,6 +55,10 @@ render() {
 		</div></div><br></br><br></br>
         
         <ProfileDetails infoclean={this.state.infoclean}/>
+		<Repos repos={this.state.repos}/>
+		
+		
+		
 	</main>
 	</div>
     );
