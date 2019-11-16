@@ -1,19 +1,35 @@
 import React from 'react';
-import Moment from 'react-moment';
+
 
 const Repos = (props) => {
+	const elements =[];
 	
 	if(props.repos){
+		
+		//const repoNumber = Number(props.infoclean.public_repos); 
+		//console.log(repoNumber);
+		for(const i = 0; i < props.repos.length; i++){
+			elements.push(props.repos[i].name);
+		}
+		
+		
     return (
 	
 	<div>
 	
           <div>
-          {props.repos.name ? <div class="row justify-content-left text-dark"> <div class="col-md-1 text-right">Name:</div> <div class="col-md-2 text-left border-right border-right">{props.repos.name}</div></div>: null }
+		  
+		 <ul class ="list-group">
+      {elements.map((value, index) => {
+        return <li class="list-group-item" key={index}>{value}</li>
+      })}
+    </ul>
+		 
         </div>
+		
     </div>
 	
 	)
-	}
+	}else{return null;}
 	};
 export default Repos;

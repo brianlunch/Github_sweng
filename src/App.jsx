@@ -20,14 +20,18 @@ class App extends Component {
   }
 handleUserFormSubmit(event) {
     event.preventDefault();
+	
+	axios.get('https://api.github.com/users/'+this.state.formData.username+'/repos').then(response => this.setState({
+      repos : response.data,
+    })).catch((err) => { console.log(err); });
+	
+	
        axios.get('https://api.github.com/users/'+this.state.formData.username).then(response => this.setState({
       gitun: response.data.login,
       infoclean: response.data,
     })).catch((err) => { console.log(err); });
 	
-	axios.get('https://api.github.com/users/brianlunch/repos').then(response => this.setState({
-      repos: response.data,
-    })).catch((err) => { console.log(err); });
+	
 	
 }
 
@@ -54,8 +58,17 @@ render() {
         />
 		</div></div><br></br><br></br>
         
+		<div class="row justify-content-left text-dark"> 
+		
+		<div class="col-md-3 text-left border-right">
         <ProfileDetails infoclean={this.state.infoclean}/>
+		</div>
+		<div class="col-md-3 text-left">
 		<Repos repos={this.state.repos}/>
+		</div>
+		</div>
+		
+		
 		
 		
 		
