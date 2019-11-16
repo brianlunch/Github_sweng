@@ -63,7 +63,7 @@ render() {
 		<div class="col-md-3 text-left border-right">
         <ProfileDetails infoclean={this.state.infoclean}/>
 		</div>
-		<div class="col-md-3 text-left">
+		<div class="col-md-9 text-left">
 		<Repos repos={this.state.repos}/>
 		</div>
 		</div>
