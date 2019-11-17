@@ -39,51 +39,56 @@ return (
                <h5>{value}<br></br><br></br></h5>
             </div>
             <div class="row justify-content-left text-dark">
-               <div class="col-md-4 text-left">
+               <div class="col-md-5 text-left">
                   <div class="row justify-content-left text-dark">
-                     <div class="col-md-3 text-right ">Size:</div>
+                     <div class="col-md-3 text-left ">Size:</div>
                      <div class="col-md-7 text-left ">{String((Number(props.repos[index].size) * .001).toFixed(3))+" Mb"}</div>
                   </div>
                </div>
-               <div class="col-md-4 text-left">
+               <div class="col-md-3 text-left">
                   <div class="row justify-content-left text-dark">
-                     <div class="col-md-4 text-left">Forks: </div>
+                     <div class="col-md-6 text-left">Forks:</div>
                      {props.repos[index].forks ? 
-                     <div class="col-md-7 text-left ">{props.repos[index].forks}</div>
+                     <div class="col-md-6 text-left ">{props.repos[index].forks}</div>
                      : 
-                     <div class="col-md-7 text-left ">0</div>
+                     <div class="col-md-6 text-left ">0</div>
                      }
                   </div>
                </div>
                
                   <div class="col-md-4 text-left">
-                  <div class="row justify-content-left text-dark">`
+                  <div class="row justify-content-left text-dark">
                   <div class="col-md-4 text-right">Created:</div>
                   {props.repos[index].created_at ? 
-         <div class="col-md-7 text-left border-right">{<Moment from={new Date()}>{props.repos[index].created_at}</Moment>}</div>
-      : null }`
+         <div class="col-md-8 text-left border-right">{<Moment from={new Date()}>{props.repos[index].created_at}</Moment>}</div>
+      : null }
                   </div>
                </div>
             </div>
             <div class="row justify-content-left text-dark">
-               <div class="col-md-4 text-left">
+               <div class="col-md-5 text-left">
                   <div class="row justify-content-left text-dark">
-                     <div class="col-md-3 text-right ">Language:</div>
+                     <div class="col-md-3 text-left ">Language:</div>
                      <div class="col-md-7 text-left ">{props.repos[index].language}</div>
                   </div>
                </div>
-               <div class="col-md-4 text-left">
+               <div class="col-md-3 text-left">
                   <div class="row justify-content-left text-dark">
-                     <div class="col-md-4 text-right">Watchers: </div>
+                     <div class="col-md-6 text-left">Watchers: </div>
                      {props.repos[index].watchers ? 
-                     <div class="col-md-7 text-left ">{props.repos[index].watchers}</div>
+                     <div class="col-md-6 text-left ">{props.repos[index].watchers}</div>
                      : 
-                     <div class="col-md-7 text-left ">0</div>
+                     <div class="col-md-6 text-left ">0</div>
                      }
                   </div>
                </div>
-               <div class="row justify-content-left text-dark">
+               
                   <div class="col-md-4 text-left">
+                  <div class="row justify-content-left text-dark">
+                  <div class="col-md-4 text-right">Updated:</div>
+                  {props.repos[index].created_at ? 
+         <div class="col-md-8 text-left border-right">{<Moment from={new Date()}>{props.repos[index].updated_at}</Moment>}</div>
+      : null }
                   </div>
                </div>
             </div>
