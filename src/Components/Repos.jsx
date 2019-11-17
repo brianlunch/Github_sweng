@@ -68,8 +68,8 @@ return (
             <div class="row justify-content-left text-dark">
                <div class="col-md-4 text-left">
                   <div class="row justify-content-left text-dark">
-                     <div class="col-md-3 text-right ">Size:</div>
-                     <div class="col-md-7 text-left ">{String((Number(props.repos[index].size) * .001).toFixed(3))+" Mb"}</div>
+                     <div class="col-md-3 text-right ">Language:</div>
+                     <div class="col-md-7 text-left ">{props.repos[index].language}</div>
                   </div>
                </div>
                <div class="col-md-4 text-left">
