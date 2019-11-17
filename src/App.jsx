@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Form from './components/Form.jsx';
-import Repos from './components/Repos.jsx';
-import Graph from './components/Graph.jsx'; 
+import Repos from './components/Repos.jsx'; 
 import ProfileDetails from './components/ProfileDetails.jsx';
 class App extends Component {
   constructor() {
@@ -23,7 +22,7 @@ handleUserFormSubmit(event) {
     event.preventDefault();
 	
 	axios.get('https://api.github.com/users/'+this.state.formData.username+'/repos').then(response => this.setState({
-      repos : response.data, 
+      repos : response.data,
     })).catch((err) => { console.log(err); });
 	
 	
@@ -32,7 +31,7 @@ handleUserFormSubmit(event) {
       infoclean: response.data,
     })).catch((err) => { console.log(err); });
 	
-	console.log(this.state.repos);
+	
 	
 }
 
@@ -65,14 +64,9 @@ render() {
         <ProfileDetails infoclean={this.state.infoclean}/>
 		</div>
 		<div class="col-md-9 text-left">
-      <Repos repo = {this.state.repos}/>
-		<Graph graph={this.state.repos}/>
+		<Repos repos={this.state.repos}/>
 		</div>
 		</div>
-		
-		
-		
-		
 		
 	</main>
 	</div>
