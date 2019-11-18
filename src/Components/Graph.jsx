@@ -1,12 +1,9 @@
 import React from 'react';
-
+import * as d3 from 'd3'
 
 const Graph = (props) => {
-const elements =[];
-if(props.repos){
-    
-    return(<div ></div>)
 
-}else{return null;}
+    
+    return(<div></div>)  
 };
 export default Graph;

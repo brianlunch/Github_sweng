@@ -21,14 +21,16 @@ class App extends Component {
   }
 handleUserFormSubmit(event) {
     event.preventDefault();
-	
+	this.setState({infoclean : ' '});this.setState({repos : ' '});
 	axios.get('https://api.github.com/users/'+this.state.formData.username+'/repos').then(response => this.setState({
-      repos : response.data,
+     
+        repos : response.data,
     })).catch((err) => { console.log(err); });
 	
 	
        axios.get('https://api.github.com/users/'+this.state.formData.username).then(response => this.setState({
       gitun: response.data.login,
+      infoclean: ' ',
       infoclean: response.data,
     })).catch((err) => { console.log(err); });
 	
@@ -51,21 +53,23 @@ render() {
 		<br></br><br></br><br></br>
 		
         <div class="row justify-content-left text-dark"> <div class="col-md-12 text-center">
-		
+		<div class ="bounce-in-top">
 		<Form
           formData={this.state.formData}
           handleUserFormSubmit={this.handleUserFormSubmit}
           handleFormChange={this.handleFormChange}
-        />
+        /></div>
 		</div></div><br></br><br></br>
-        
+      
 		<div class="row justify-content-left text-dark"> 
 		
 		<div class="col-md-3 text-left border-right">
+    
         <ProfileDetails infoclean={this.state.infoclean}/>
+         
 		</div>
 		<div class="col-md-9 text-left">
-		<Graph repos={this.state.repos}/>
+		<Repos repos={this.state.repos}/>
 		</div>
 		</div>
 		
