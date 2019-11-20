@@ -18,6 +18,7 @@ commits.push(response.data.length);console.log(response.data.length);
 }
 //stores commit json in commitFile
 return (
+<div class = "slide-in-right">
 <div class="row">
    <div class="col-3">
       <h5>Select a repo to analyse</h5>
@@ -33,11 +34,13 @@ return (
          <div class="tab-pane fade show" id="allrepos" role="tabpanel" aria-labelledby="list-homes-list">All Repos</div>
          {elements.map((value,index) => {
          return(
+            
          <div class="tab-pane fade show" id={value} role="tabpanel" aria-labelledby="list-homes-list">
             <i></i>
             <div class="row justify-content-left text-dark">
                <h5>{value}<br></br><br></br></h5>
             </div>
+            <div class = "slide-in-right">
             <div class="row justify-content-left text-dark">
                <div class="col-md-5 text-left">
                   <div class="row justify-content-left text-dark">
@@ -93,12 +96,12 @@ return (
                </div>
             </div>
             <b></b>
-         </div>
+         </div></div>
          )
          })}
       </div>
    </div>
-</div>
+</div></div>
 )
 }else{return null;}
 };
