@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 import Moment from 'react-moment';
+import Plot from 'react-plotly.js';
+import Graph from './Graph.jsx';  
 import 'jquery/dist/jquery.min.js'
 import 'bootstrap/dist/js/bootstrap.min.js'
 const Repos = (props) => {
@@ -13,12 +15,18 @@ var commits= [];
 for(const i = 0; i < props.repos.length; i++){
 elements.push(props.repos[i].name);
 axios.get('https://api.github.com/repos/brianlunch/'+props.repos[i].name+'/commits').then(response =>{
-commits.push(response.data.length);console.log(response.data.length);
+commits.push(response.data.length);//console.log(response.data.length);
 }).catch((err) => { console.log(err); });
 }
+
+const repoSize =[];const repoNames=[];
+    for(const i = 0; i < props.repos.length; i++){
+        repoSize.push(props.repos[i].size);
+        repoNames.push(props.repos[i].name);  
+    }
 //stores commit json in commitFile
 return (
-<div class = "slide-in-right">
+<div class="slide-in-right">
 <div class="row">
    <div class="col-3">
       <h5>Select a repo to analyse</h5>
@@ -31,8 +39,18 @@ return (
    </div>
    <div class="col-md-9 text-left">
       <div class="tab-content" id="nav-tabContent">
-         <div class="tab-pane fade show" id="allrepos" role="tabpanel" aria-labelledby="list-homes-list">All Repos</div>
+         <div class="tab-pane fade show" id="allrepos" role="tabpanel" aria-labelledby="list-homes-list">All Repos<div class="slide-in-right"><div class="row justify-content-left text-dark"><Plot data={[
+    {
+      values: repoSize,
+labels: repoNames,
+type: 'pie'
+    }
+  ]}
+  layout={ {width: 700, height: 400} }
+/></div></div></div>
          {elements.map((value,index) => {
+            const forks =props.repos[index].forks;
+            const watchers = props.repos[index].watchers;
          return(
             
          <div class="tab-pane fade show" id={value} role="tabpanel" aria-labelledby="list-homes-list">
@@ -40,7 +58,7 @@ return (
             <div class="row justify-content-left text-dark">
                <h5>{value}<br></br><br></br></h5>
             </div>
-            <div class = "slide-in-right">
+            <div class="slide-in-right">
             <div class="row justify-content-left text-dark">
                <div class="col-md-5 text-left">
                   <div class="row justify-content-left text-dark">
@@ -48,16 +66,7 @@ return (
                      <div class="col-md-7 text-left ">{String((Number(props.repos[index].size) * .001).toFixed(3))+" Mb"}</div>
                   </div>
                </div>
-               <div class="col-md-3 text-left">
-                  <div class="row justify-content-left text-dark">
-                     <div class="col-md-6 text-left">Forks:</div>
-                     {props.repos[index].forks ? 
-                     <div class="col-md-6 text-left ">{props.repos[index].forks}</div>
-                     : 
-                     <div class="col-md-6 text-left ">0</div>
-                     }
-                  </div>
-               </div>
+             
                
                   <div class="col-md-4 text-left">
                   <div class="row justify-content-left text-dark">
@@ -75,16 +84,7 @@ return (
                      <div class="col-md-7 text-left ">{props.repos[index].language}</div>
                   </div>
                </div>
-               <div class="col-md-3 text-left">
-                  <div class="row justify-content-left text-dark">
-                     <div class="col-md-6 text-left">Watchers: </div>
-                     {props.repos[index].watchers ? 
-                     <div class="col-md-6 text-left ">{props.repos[index].watchers}</div>
-                     : 
-                     <div class="col-md-6 text-left ">0</div>
-                     }
-                  </div>
-               </div>
+               
                
                   <div class="col-md-4 text-left">
                   <div class="row justify-content-left text-dark">
@@ -95,6 +95,21 @@ return (
                   </div>
                </div>
             </div>
+           
+            <div class="slide-in-right">
+            <div class="row justify-content-left text-dark">
+            
+            <Plot data={[
+    {
+    y: [forks,watchers],
+   x : ['Forks', 'Watchers'],
+type: 'bar'
+    }
+  ]}
+  layout={ {width: 500, height: 400} }
+/>
+
+            </div></div>
             <b></b>
          </div></div>
          )
