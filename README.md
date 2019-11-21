@@ -1,5 +1,7 @@
 # Github Access - CS3012
 
+![](gif.gif)
+
 My github access web app accepts a github profile name from the user and loads data using axios from the github api and stores it as a json object.
 
 It displays numerous details about the queried github profile including name, location, bio, followers, following etc.
