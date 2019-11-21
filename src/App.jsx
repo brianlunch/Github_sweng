@@ -30,12 +30,12 @@ handleUserFormSubmit(event) {
     event.preventDefault();
     const token = "";
 	this.setState({infoclean : ' '});this.setState({repos : ' '});
-	axios.get('https://api.github.com/users/'+this.state.formData.username+'/repos?access_token=0e5affb078dc7c9fcfa89c6c22ea857d3c0425e7'+token,{}).then(response => this.setState({
+	axios.get('https://api.github.com/users/'+this.state.formData.username+'/repos?access_token=3fbb8e69bb00c441814715b12e7a3cf05ef07594'+token,{}).then(response => this.setState({
         repos : response.data,
     })).catch((err) => { console.log(err); });
 	
 	
-       axios.get('https://api.github.com/users/'+this.state.formData.username+'?access_token=0e5affb078dc7c9fcfa89c6c22ea857d3c0425e7'+token).then(response => this.setState({
+       axios.get('https://api.github.com/users/'+this.state.formData.username+'?access_token=3fbb8e69bb00c441814715b12e7a3cf05ef07594'+token).then(response => this.setState({
       gitun: response.data.login,
       infoclean: ' ',
       infoclean: response.data,

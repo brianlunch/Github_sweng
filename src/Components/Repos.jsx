@@ -31,7 +31,8 @@ return (
    <div class="col-3">
       <h5>Select a repo to analyse</h5>
       <div class="list-group" id="list-tab" role="tablist">
-         <a class="list-group-item list-group-item-action" id="list-home-list" data-toggle="list" href="#allrepos" role="tab" aria-controls="home">All repos</a>
+         <a class="list-group-item list-group-item-action" id="list-home-list" data-toggle="list" href="#allrepos" role="tab" aria-controls="home">All repos
+         </a>
          {elements.map((value,index) => {
          return(<a class="list-group-item list-group-item-action" id="list-home-list" data-toggle="list" href={"#"+value} role="tab" aria-controls="home">{value}</a>)
          })}
@@ -39,7 +40,7 @@ return (
    </div>
    <div class="col-md-9 text-left">
       <div class="tab-content" id="nav-tabContent">
-         <div class="tab-pane fade show" id="allrepos" role="tabpanel" aria-labelledby="list-homes-list">All Repos<div class="slide-in-right"><div class="row justify-content-left text-dark"><Plot data={[
+         <div class="tab-pane fade show" id="allrepos" role="tabpanel" aria-labelledby="list-homes-list"><h3>All Repos by size</h3><div class="slide-in-right"><div class="row justify-content-left text-dark"><Plot data={[
     {
       values: repoSize,
 labels: repoNames,
